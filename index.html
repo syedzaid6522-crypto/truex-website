@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TrueX Enterprises</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:Poppins;
+background:#0a0a0a;
+color:#fff;
+overflow:hidden;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+transform:translateX(100%);
+transition:0.6s ease;
+padding:20px;
+}
+
+.page.active{
+transform:translateX(0);
+}
+
+h1{color:gold}
+
+.btns{
+margin-top:20px;
+}
+
+button{
+margin:5px;
+padding:10px 20px;
+border:none;
+background:gold;
+cursor:pointer;
+border-radius:20px;
+}
+
+.nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-around;
+background:#000;
+padding:10px;
+z-index:1000;
+}
+
+.nav button{
+background:none;
+color:#fff;
+}
+
+.card{
+background:#111;
+padding:20px;
+margin:10px;
+border-radius:10px;
+max-width:300px;
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+font-size:24px;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+z-index:1000;
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+}
+
+.email-link{
+color:gold;
+font-size:18px;
+text-decoration:none;
+}
+
+.email-link:hover{
+text-decoration:underline;
+}
+</style>
+</head>
+
+<a href="https://wa.me/919886577627" target="_blank" class="whatsapp-float">
+💬
+</a>
+
+<body>
+
+<div class="nav">
+<button onclick="goPage(0)">Home</button>
+<button onclick="goPage(1)">Brands</button>
+<button onclick="goPage(2)">Why</button>
+<button onclick="goPage(3)">Services</button>
+<button onclick="goPage(4)">About</button>
+<button onclick="goPage(5)">Contact</button>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page active">
+<h1>TrueX Enterprises</h1>
+<p>Built Different. Powering Everything.</p>
+<p>From sound to style to purity — we create excellence.</p>
+
+<div class="btns">
+<button onclick="goPage(1)">Next →</button>
+</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+<h1>Our Brands</h1>
+
+<div class="card">
+<h3>🎧 True Tone</h3>
+<p>Studio recording for artists with premium sound.</p>
+</div>
+
+<div class="card">
+<h3>💧 Hydrate</h3>
+<p>Custom branded water for luxury restaurants.</p>
+</div>
+
+<div class="card">
+<h3>👕 True Forms</h3>
+<p>"Wear Your Standard"</p>
+</div>
+
+<div class="btns">
+<button onclick="goPage(0)">← Back</button>
+<button onclick="goPage(2)">Next →</button>
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+<h1>Why Choose Us</h1>
+
+<div class="card">✔ Premium Quality</div>
+<div class="card">✔ Affordable Services</div>
+<div class="card">✔ Built for Creators</div>
+<div class="card">✔ Strong Branding</div>
+
+<div class="btns">
+<button onclick="goPage(1)">← Back</button>
+<button onclick="goPage(3)">Next →</button>
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+<h1>Services</h1>
+
+<div class="card">Music Production & Recording</div>
+<div class="card">Custom Water Branding</div>
+<div class="card">Fashion & Apparel Design</div>
+
+<div class="btns">
+<button onclick="goPage(2)">← Back</button>
+<button onclick="goPage(4)">Next →</button>
+</div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+<h1>About Us</h1>
+<p>
+TrueX Enterprises is a multi-brand company focused on creativity,
+quality, and innovation across industries.
+</p>
+
+<div class="btns">
+<button onclick="goPage(3)">← Back</button>
+<button onclick="goPage(5)">Next →</button>
+</div>
+</div>
+
+<!-- PAGE 6 -->
+<div class="page">
+<h1>Contact Us</h1>
+
+<p>Connect with us:</p>
+
+<a href="https://wa.me/919886577627" target="_blank">
+<button style="background:#25D366;color:white;">
+💬 Message TrueX Enterprises on WhatsApp
+</button>
+</a>
+
+<p>Email us directly:</p>
+
+<a href="mailto:truexenterprises8@gmail.com" class="email-link">
+📧 truexenterprises8@gmail.com
+</a>
+
+<div class="btns">
+<button onclick="goPage(4)">← Back</button>
+</div>
+</div>
+
+<script>
+let pages = document.querySelectorAll(".page");
+
+function goPage(index){
+pages.forEach(p => p.classList.remove("active"));
+pages[index].classList.add("active");
+}
+</script>
+
+</body>
+</html>
