@@ -3,149 +3,117 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TrueX Enterprises | Luxury</title>
+<title>TrueX Enterprises | Premium</title>
+<!-- Importing Premium Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
 
 <style>
-/* --- PREMIUM VARIABLES --- */
+/* --- VARIABLES & RESET --- */
 :root {
-    --bg-dark: #080808;
-    --bg-surface: #111111;
-    --gold: #C5A059;
-    --gold-bright: #E5C680;
-    --gold-dim: #8A7040;
-    --text-white: #FFFFFF;
-    --text-grey: #A0A0A0;
+    --bg-dark: #050505;
+    --bg-panel: #121212;
+    --text-main: #e0e0e0;
+    --text-muted: #888888;
+    --gold: #D4AF37;
+    --gold-light: #F2D06B;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-head: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     background-color: var(--bg-dark);
-    color: var(--text-white);
+    color: var(--text-main);
     font-family: var(--font-body);
     overflow-x: hidden;
     height: 100vh;
     width: 100vw;
-}
-
-/* --- BACKGROUND AMBIENCE --- */
-.ambient-glow {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.08) 0%, transparent 50%);
-    animation: pulse 8s infinite ease-in-out;
-    pointer-events: none;
-    z-index: -1;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.5; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* --- TYPOGRAPHY --- */
 h1 {
-    font-family: var(--font-display);
-    font-size: 4rem;
-    font-weight: 300;
-    letter-spacing: 2px;
-    color: var(--text-white);
+    font-family: var(--font-head);
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--gold), var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     margin-bottom: 10px;
     text-align: center;
-    animation: fadeInUp 0.8s ease forwards;
 }
 
-h1 span {
-    background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-bright));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.subtitle {
+h3 {
+    font-family: var(--font-body);
+    color: var(--gold-light);
+    margin-bottom: 10px;
     font-size: 1rem;
-    font-weight: 300;
-    letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-    animation: fadeInUp 0.8s ease 0.2s forwards;
-    opacity: 0;
+    letter-spacing: 1.5px;
 }
 
 p {
-    font-size: 1rem;
-    color: var(--text-grey);
-    line-height: 1.8;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-muted);
     text-align: center;
-    max-width: 500px;
 }
 
-/* --- ANIMATIONS --- */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in { animation: fadeInUp 0.6s ease forwards; opacity: 0; }
-
-/* --- FLOATING NAVIGATION --- */
-.nav-pill {
+/* --- NAVIGATION --- */
+.nav-container {
     position: fixed;
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(20, 20, 20, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
     border-radius: 50px;
-    padding: 8px 10px;
+    padding: 10px 20px;
     display: flex;
     gap: 5px;
     z-index: 1000;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-    animation: fadeInUp 0.6s ease 0.4s forwards;
-    opacity: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow-x: auto;
+    max-width: 95vw;
 }
 
-.nav-item {
+.nav-btn {
     background: none;
     border: none;
-    color: var(--text-grey);
+    color: var(--text-muted);
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 1px;
+    font-size: 0.85rem;
     cursor: pointer;
-    padding: 10px 20px;
-    border-radius: 40px;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
+    transition: 0.3s;
+    padding: 8px 16px;
+    border-radius: 25px;
+    white-space: nowrap;
 }
 
-.nav-item:hover { color: var(--text-white); }
-
-.nav-item.active {
-    background: var(--gold);
+.nav-btn:hover { color: var(--text-main); }
+.nav-btn.active {
     color: var(--bg-dark);
+    background: var(--gold);
     font-weight: 500;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
 /* --- PAGES --- */
-.page-wrapper {
+.page-container {
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow-y: auto;
+    height: 100%;
+    max-width: 1200px;
+    padding: 80px 20px;
 }
 
 .page {
@@ -153,333 +121,293 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 120px 20px 80px;
     opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(20px) scale(0.98);
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+    overflow-y: auto;
 }
 
 .page.active {
     opacity: 1;
-    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+    z-index: 10;
 }
 
-/* --- CARDS GRID --- */
-.cards-grid {
+/* --- CARDS --- */
+.card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
     width: 100%;
-    max-width: 1000px;
-    margin: 40px 0;
+    max-width: 900px;
+    margin: 30px auto;
 }
 
-.glass-card {
+.card {
     background: var(--glass);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 35px;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
+    padding: 25px;
+    border-radius: 12px;
+    transition: 0.3s ease;
 }
 
-.glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
-    opacity: 0;
-    transition: 0.4s ease;
+.card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-3px);
 }
 
-.glass-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(197, 160, 89, 0.2);
-    transform: translateY(-5px);
-}
-
-.glass-card:hover::before { opacity: 1; }
-
-.glass-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    color: var(--gold-bright);
-    margin-bottom: 15px;
-    font-weight: 500;
-}
-
-.glass-card p {
-    font-size: 0.9rem;
-    text-align: left;
-    color: var(--text-grey);
-}
+.card p { text-align: left; font-size: 0.95rem; }
+.card h3 { font-size: 0.9rem; }
 
 /* --- BUTTONS --- */
-.btn-group {
+.btn-nav {
     display: flex;
     gap: 15px;
-    margin-top: 30px;
+    margin-top: 20px;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .btn {
-    padding: 14px 32px;
+    padding: 10px 25px;
+    border: 1px solid var(--gold);
     background: transparent;
-    border: 1px solid var(--gold-dim);
     color: var(--gold);
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
     cursor: pointer;
+    transition: 0.3s ease;
     border-radius: 4px;
-    transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
 .btn:hover {
     background: var(--gold);
     color: var(--bg-dark);
-    border-color: var(--gold);
-    box-shadow: 0 0 30px rgba(197, 160, 89, 0.3);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
 }
 
-/* --- CONTACT BOX --- */
+/* --- CONTACTS --- */
 .contact-box {
     background: var(--glass);
+    padding: 30px;
+    border-radius: 16px;
     border: 1px solid var(--glass-border);
-    padding: 40px;
-    border-radius: 20px;
     text-align: center;
+    margin-top: 20px;
     max-width: 400px;
     width: 100%;
-    margin: 20px 0;
-    transition: 0.3s ease;
-}
-
-.contact-box:hover {
-    border-color: rgba(197, 160, 89, 0.3);
 }
 
 .email-link {
-    color: var(--gold-bright);
+    display: inline-block;
+    color: var(--gold-light);
     text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    transition: 0.3s ease;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    transition: 0.3s;
 }
 
 .email-link:hover {
-    text-shadow: 0 0 20px rgba(197, 160, 89, 0.5);
+    border-color: var(--gold);
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
 }
 
-/* --- WHATSAPP FLOAT --- */
+/* --- FLOATING WHATSAPP --- */
 .whatsapp-float {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #25D366, #20BF55);
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: #25D366;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 28px;
+    font-size: 26px;
     z-index: 1000;
+    transition: 0.3s;
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-    transition: all 0.3s ease;
-    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    transform: scale(1.1);
+    bottom: 35px;
 }
 
 /* --- FOOTER --- */
 footer {
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     width: 100%;
     text-align: center;
-    color: rgba(255,255,255,0.15);
     font-size: 0.7rem;
-    letter-spacing: 2px;
+    color: rgba(255,255,255,0.2);
+    z-index: 999;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     h1 { font-size: 2.5rem; }
-    .nav-pill {
-        bottom: 20px;
-        top: auto;
-        width: 90%;
-        overflow-x: auto;
+    .nav-container { 
+        top: auto; 
+        bottom: 20px; 
+        width: 90%; 
         justify-content: space-around;
+        padding: 8px 10px;
     }
-    .nav-item { font-size: 0.65rem; padding: 8px 12px; }
-    .whatsapp-float { bottom: 100px; right: 20px; }
+    .nav-btn { font-size: 0.7rem; padding: 5px 8px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Ambient Background -->
-<div class="ambient-glow"></div>
-
 <!-- Floating WhatsApp -->
-<a href="https://wa.me/919886577627" target="_blank" class="whatsapp-float">
-    ✉
-</a>
+<a href="https://wa.me/919886577627" target="_blank" class="whatsapp-float">💬</a>
 
 <!-- Navigation -->
-<nav class="nav-pill">
-    <button class="nav-item active" onclick="goPage(0)">Home</button>
-    <button class="nav-item" onclick="goPage(1)">Brands</button>
-    <button class="nav-item" onclick="goPage(2)">Why</button>
-    <button class="nav-item" onclick="goPage(3)">Services</button>
-    <button class="nav-item" onclick="goPage(4)">About</button>
-    <button class="nav-item" onclick="goPage(5)">Contact</button>
+<nav class="nav-container">
+    <button class="nav-btn active" onclick="goPage(0, this)">Home</button>
+    <button class="nav-btn" onclick="goPage(1, this)">Brands</button>
+    <button class="nav-btn" onclick="goPage(2, this)">Why Us</button>
+    <button class="nav-btn" onclick="goPage(3, this)">Services</button>
+    <button class="nav-btn" onclick="goPage(4, this)">About</button>
+    <button class="nav-btn" onclick="goPage(5, this)">Contact</button>
 </nav>
 
-<div class="page-wrapper">
+<div class="page-container">
 
     <!-- PAGE 1: HOME -->
     <div class="page active">
-        <div class="subtitle fade-in">Multi-Brand Holding</div>
-        <h1>TrueX <span>Enterprises</span></h1>
-        <p class="fade-in" style="animation-delay: 0.3s">Built Different. Powering Everything.</p>
-        <p class="fade-in" style="animation-delay: 0.4s; margin-top: 10px;">From sound to style to purity — we create excellence.</p>
-        
-        <div class="btn-group fade-in" style="animation-delay: 0.5s">
+        <h1>TrueX Enterprises</h1>
+        <p>Built Different. Powering Everything.</p>
+        <p style="margin-top: 10px;">From sound to style to purity — we create excellence.</p>
+        <div class="btn-nav">
             <button class="btn" onclick="goPage(1)">Explore Brands</button>
         </div>
     </div>
 
     <!-- PAGE 2: BRANDS -->
     <div class="page">
-        <h1>Our <span>Brands</span></h1>
-        
-        <div class="cards-grid">
-            <div class="glass-card">
-                <h3>True Tone</h3>
-                <p>Professional studio recording for artists with premium fidelity sound equipment. Creating soundscapes that resonate.</p>
+        <h1>Our Brands</h1>
+        <div class="card-grid">
+            <div class="card">
+                <h3>🎧 True Tone</h3>
+                <p>Professional studio recording for artists with premium fidelity sound equipment.</p>
             </div>
-            <div class="glass-card">
-                <h3>Hydrate</h3>
-                <p>Luxury custom branded mineral water for elite restaurants and hospitality. Purity meets prestige.</p>
+            <div class="card">
+                <h3>💧 Hydrate</h3>
+                <p>Luxury custom branded mineral water for elite restaurants and hospitality.</p>
             </div>
-            <div class="glass-card">
-                <h3>True Forms</h3>
-                <p>"Wear Your Standard". High-end streetwear and apparel design for the modern creator.</p>
+            <div class="card">
+                <h3>👕 True Forms</h3>
+                <p>"Wear Your Standard". High-endstreetwear and apparel design.</p>
             </div>
         </div>
-        
-        <div class="btn-group">
-            <button class="btn" onclick="goPage(0)">Back</button>
-            <button class="btn" onclick="goPage(2)">Next</button>
+        <div class="btn-nav">
+            <button class="btn" onclick="goPage(0)">← Back</button>
+            <button class="btn" onclick="goPage(2)">Why Us →</button>
         </div>
     </div>
 
     <!-- PAGE 3: WHY -->
     <div class="page">
-        <h1>Why <span>Us</span></h1>
-        
-        <div class="cards-grid">
-            <div class="glass-card">
-                <h3>Premium Quality</h3>
-                <p>Uncompromising standards in every product we deliver. Excellence is non-negotiable.</p>
-            </div>
-            <div class="glass-card">
-                <h3>Affordable Luxury</h3>
-                <p>Top-tier services designed for creators at accessible rates. Luxury redefined.</p>
-            </div>
-            <div class="glass-card">
-                <h3>Built for Creators</h3>
-                <p>We understand the artist's vision and execute it perfectly. Your dream, our craft.</p>
-            </div>
-            <div class="glass-card">
-                <h3>Strong Branding</h3>
-                <p>We build identities that stand the test of time. Legacy in the making.</p>
-            </div>
+        <h1>Why Choose Us</h1>
+        <div class="card-grid">
+            <div class="card"><h3>✔️ Premium Quality</h3><p>Uncompromising standards in every product we deliver.</p></div>
+            <div class="card"><h3>✔️ Affordable Luxury</h3><p>Top-tier services designed for creators at accessible rates.</p></div>
+            <div class="card"><h3>✔️ Built for Creators</h3><p>We understand the artist's vision and execute it perfectly.</p></div>
+            <div class="card"><h3>✔️ Strong Branding</h3><p>We build identities that stand the test of time.</p></div>
         </div>
-        
-        <div class="btn-group">
-            <button class="btn" onclick="goPage(1)">Back</button>
-            <button class="btn" onclick="goPage(3)">Next</button>
+        <div class="btn-nav">
+            <button class="btn" onclick="goPage(1)">← Back</button>
+            <button class="btn" onclick="goPage(3)">Services →</button>
         </div>
     </div>
 
     <!-- PAGE 4: SERVICES -->
     <div class="page">
-        <h1>Our <span>Services</span></h1>
-        
-        <div class="cards-grid">
-            <div class="glass-card">
-                <h3>Music Production</h3>
-                <p>End-to-end recording, mixing, and mastering. Your sound, perfected.</p>
-            </div>
-            <div class="glass-card">
-                <h3>Custom Water</h3>
-                <p>Bottling, labeling, and branding for business. Luxury in every drop.</p>
-            </div>
-            <div class="glass-card">
-                <h3>Fashion Design</h3>
-                <p>From concept sketch to final textile production. Wear your vision.</p>
-            </div>
+        <h1>Services</h1>
+        <div class="card-grid">
+            <div class="card"><h3>🎵 Music Production</h3><p>End-to-end recording, mixing, and mastering.</p></div>
+            <div class="card"><h3>💧 Custom Water</h3><p>Bottling, labeling, and branding for business.</p></div>
+            <div class="card"><h3>👕 Apparel Design</h3><p>From concept sketch to final textile production.</p></div>
         </div>
-        
-        <div class="btn-group">
-            <button class="btn" onclick="goPage(2)">Back</button>
-            <button class="btn" onclick="goPage(4)">Next</button>
+        <div class="btn-nav">
+            <button class="btn" onclick="goPage(2)">← Back</button>
+            <button class="btn" onclick="goPage(4)">About Us →</button>
         </div>
     </div>
 
     <!-- PAGE 5: ABOUT -->
     <div class="page">
-        <h1>About <span>Us</span></h1>
-        <p>
+        <h1>About Us</h1>
+        <p style="max-width: 600px; margin: 0 auto;">
             TrueX Enterprises is a multi-brand holding company focused on creativity, 
             quality, and innovation. We bridge the gap between luxury and accessibility, 
             delivering excellence across the sound, beverage, and fashion industries.
         </p>
-        
-        <div class="btn-group">
-            <button class="btn" onclick="goPage(3)">Back</button>
-            <button class="btn" onclick="goPage(5)">Next</button>
+        <div class="btn-nav">
+            <button class="btn" onclick="goPage(3)">← Back</button>
+            <button class="btn" onclick="goPage(5)">Contact →</button>
         </div>
     </div>
 
     <!-- PAGE 6: CONTACT -->
     <div class="page">
-        <h1>Get in <span>Touch</span></h1>
+        <h1>Contact Us</h1>
         
         <div class="contact-box">
-            <p style="margin-bottom: 25px;">Connect with us directly on WhatsApp:</p>
+            <p style="margin-bottom: 20px;">Connect with us directly on WhatsApp:</p>
             <button class="btn" style="background: #25D366; border-color: #25D366; color: white;" onclick="window.open('https://wa.me/919886577627', '_blank')">
-                Message TrueX
+                💬 Message TrueX
             </button>
         </div>
 
         <div class="contact-box">
-            <p style="margin-bottom: 20px;">Or email us:</p>
+            <p style="margin-bottom: 15px;">Or email us:</p>
             <a href="mailto:truexenterprises8@gmail.com" class="email-link">truexenterprises8@gmail.com</a>
         </div>
 
-        <div class="btn-group">
-            <button class="btn" onclick="go
+        <div class="btn-nav">
+            <button class="btn" onclick="goPage(4)">← Back</button>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 TrueX Enterprises. All Rights Reserved.</p>
+</footer>
+
+<script>
+function goPage(index) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+    });
+    
+    // Show selected page
+    document.querySelectorAll('.page')[index].classList.add('active');
+
+    // Update Nav Buttons
+    document.querySelectorAll('.nav-btn').forEach((btn, i) => {
+        if(i === index) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+}
+</script>
+
+</body>
+</html>
