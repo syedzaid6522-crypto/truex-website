@@ -1,5 +1,6 @@
 """
-TrueX Enterprises - Full Stack Website + Admin Panel
+TrueX Enterprises - Full Stack Website
+By: TrueX Enterprises
 """
 
 from flask import Flask, render_template_string, request, redirect, url_for, flash
@@ -23,7 +24,14 @@ class ContactMessage(db.Model):
     message = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-# ================== HTML TEMPLATE ==================
+class Brand(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    icon = db.Column(db.String(20), nullable=False)
+    category = db.Column(db.String(50), nullable=False)
+
+# ================== HTML TEMPLATE (YOUR WEBSITE) ==================
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
@@ -280,26 +288,10 @@ footer {
     font-size: 0.9rem;
 }
 .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); }
-
-<!-- ADMIN PANEL STYLES -->
-.admin-container { max-width: 800px; width: 100%; padding: 20px; }
-.admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-.admin-header h1 { font-size: 2rem; }
-.msg-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-.msg-table th, .msg-table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--glass-border); }
-.msg-table th { color: var(--gold); font-size: 0.85rem; text-transform: uppercase; }
-.msg-table tr:hover { background: var(--glass); }
-.msg-date { font-size: 0.8rem; color: var(--text-muted); }
-.empty-msg { text-align: center; padding: 40px; color: var(--text-muted); }
-.back-link { color: var(--gold); text-decoration: none; font-size: 0.9rem; }
-.back-link:hover { text-decoration: underline; }
-
 @media (max-width: 600px) {
     h1 { font-size: 2.5rem; }
     .nav-container { top: auto; bottom: 20px; width: 90%; justify-content: space-around; padding: 8px 10px; }
     .nav-btn { font-size: 0.7rem; padding: 5px 8px; }
-    .msg-table { font-size: 0.8rem; }
-    .msg-table th, .msg-table td { padding: 8px; }
 }
 </style>
 </head>
@@ -323,7 +315,6 @@ footer {
     <button class="nav-btn" onclick="goPage(3, this)">Services</button>
     <button class="nav-btn" onclick="goPage(4, this)">About</button>
     <button class="nav-btn" onclick="goPage(5, this)">Contact</button>
-    <button class="nav-btn" onclick="window.location.href='/admin'">⚙️ Admin</button>
 </nav>
 
 <div class="page-container">
@@ -429,4 +420,22 @@ footer {
 
         <div class="contact-box">
             <p style="margin-bottom: 15px;">Or email us directly:</p>
-            <
+            <a href="mailto:truexenterprises8@gmail.com" class="email-link">truexenterprises8@gmail.com</a>
+        </div>
+
+        <div class="btn-nav">
+            <button class="btn" onclick="goPage(4)">← Back</button>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 TrueX Enterprises. All Rights Reserved.</p>
+</footer>
+
+<script>
+function goPage(index) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.page')[index].classList.add('active');
+    document.querySelectorAll('.nav-btn').for
